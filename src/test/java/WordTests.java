@@ -1,5 +1,8 @@
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;
+
+import java.util.Arrays;
+
 public class WordTests {
     @Test
     public void getWordTest(){
@@ -9,9 +12,17 @@ public class WordTests {
     }
     @Test
     public void wordToCharTest(){
-        char[] charWord = {'i','n','h','e','r','i','t','a','n','c','e'};
-        char[] expected = charWord;
-        char[] actual = Board.getInstance().wordToChar();
+        char[] charWord = {'I','N','H','E','R','I','T','A','N','C','E'};
+        boolean expected = true;
+        boolean actual = Arrays.equals(Board.getInstance().wordToChar(), charWord);
         Assertions.assertEquals(expected, actual);
     }
+    @Test
+    public void hideWordTest(){
+        char[] hiddenWord = {'X','X','X','X','X','X','X','X','X','X','X'};
+        boolean expected = true;
+        boolean actual = Arrays.equals(hiddenWord, Board.getInstance().hideWord());
+        Assertions.assertEquals(expected, actual);
+    }
+    
 }

@@ -15,6 +15,6 @@ public class Board {
     }
 
     public char[] wordToChar() {
-        return null;
+        return words.get(0).toString().toCharArray();
     }
 }
