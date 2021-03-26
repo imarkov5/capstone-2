@@ -7,4 +7,10 @@ public class WordTests {
         String actual = Board.getInstance().getWords().get(0).toString();
         Assertions.assertEquals(expected, actual);
     }
+    @Test
+    public void wordToCharTest(){
+        char[] expected = {'i','n','h','e','r','i','t','a','n','c','e'};
+        char[] actual = Board.getInstance().wordToChar();
+        Assertions.assertEquals(expected, actual);
+    }
 }
