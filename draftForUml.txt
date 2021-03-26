@@ -1,0 +1,34 @@
+class HangmanDrawing{
+String hangman;
+}
+
+public enum Word{
+HAPPY ("description of the word"), PUPPY ("another description")
+
+final String description;
+Word(desc){
+this description = desc;
+}
+}
+
+
+interface Game{
+private final int mistakesLeft =6;
+
+void getRandomWord();
+void wordToChar();
+void hideWord();
+void checkForValidInput();
+void checkIfLetterGuessed();
+void drawHangman();
+}
+
+class Board implements Game{
+Hangman hanngman;
+boolean isLetterCorrect;
+boolean isWordGuessed;
+boolean isDonePlaying;
+Set<Word> words;
+override methods
+}
+
