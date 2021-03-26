@@ -13,4 +13,8 @@ public class Board {
     public ArrayList getWords() {
         return this.words;
     }
+
+    public char[] wordToChar() {
+        return null;
+    }
 }

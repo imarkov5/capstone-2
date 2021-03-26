@@ -9,7 +9,8 @@ public class WordTests {
     }
     @Test
     public void wordToCharTest(){
-        char[] expected = {'i','n','h','e','r','i','t','a','n','c','e'};
+        char[] charWord = {'i','n','h','e','r','i','t','a','n','c','e'};
+        char[] expected = charWord;
         char[] actual = Board.getInstance().wordToChar();
         Assertions.assertEquals(expected, actual);
     }
