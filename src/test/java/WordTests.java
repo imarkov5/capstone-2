@@ -4,7 +4,7 @@ public class WordTests {
     @Test
     public void getWord(){
         String expected = "PUPPY";
-        String actual = Word.PUPPY;
+        Word actual = Word.PUPPY;
         Assertions.assertEquals(expected, actual);
     }
 }
