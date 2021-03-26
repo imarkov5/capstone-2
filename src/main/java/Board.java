@@ -18,7 +18,10 @@ public class Board {
         return words.get(0).toString().toCharArray();
     }
 
-    public char[] hideWord() {
-        return null;
+    public char[] hideWord(char[] charWord) {
+        for(int i = 0; i < charWord.length; i++){
+            charWord[i] = 'X';
+        }
+        return charWord;
     }
 }

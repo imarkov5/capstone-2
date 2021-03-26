@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Assertions;
 import java.util.Arrays;
 
 public class WordTests {
+    char[] charWord = {'I','N','H','E','R','I','T','A','N','C','E'};
     @Test
     public void getWordTest(){
         String expected = "INHERITANCE";
@@ -12,7 +13,6 @@ public class WordTests {
     }
     @Test
     public void wordToCharTest(){
-        char[] charWord = {'I','N','H','E','R','I','T','A','N','C','E'};
         boolean expected = true;
         boolean actual = Arrays.equals(Board.getInstance().wordToChar(), charWord);
         Assertions.assertEquals(expected, actual);
@@ -21,7 +21,7 @@ public class WordTests {
     public void hideWordTest(){
         char[] hiddenWord = {'X','X','X','X','X','X','X','X','X','X','X'};
         boolean expected = true;
-        boolean actual = Arrays.equals(hiddenWord, Board.getInstance().hideWord());
+        boolean actual = Arrays.equals(hiddenWord, Board.getInstance().hideWord(charWord));
         Assertions.assertEquals(expected, actual);
     }
     
