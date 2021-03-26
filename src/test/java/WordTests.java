@@ -2,9 +2,9 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;
 public class WordTests {
     @Test
-    public void getWord(){
-        String expected = "PUPPY";
-        Word actual = Word.PUPPY;
+    public void getWordTest(){
+        String expected = "INHERITANCE";
+        String actual = Board.getInstance().getWords().get(0).toString();
         Assertions.assertEquals(expected, actual);
     }
 }
