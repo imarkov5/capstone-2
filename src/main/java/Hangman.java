@@ -5,6 +5,19 @@ public class Hangman {
     }
 
     public String drawHangman(int mistakes) {
-        return null;
+        String hangmanDrawing = "";
+        switch(mistakes){
+            case 6:
+            return "     ________\n" +
+                    "     |/     |\n" +
+                    "     |      |\n" +
+                    "     |     (_)\n"+
+                    "     |     /|\\ \n"+
+                    "     |      |\n" +
+                    "     |     / \\\n"+
+                    "     |\n"        +
+                    " ____|____";
+        }
+        return hangmanDrawing;
     }
 }
