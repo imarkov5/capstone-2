@@ -3,7 +3,7 @@ import org.junit.jupiter.api.Test;
 
 public class HangmanTests {
     @Test
-    public void drawHangmanTest(){
+    public void drawHangmanZeroMistakesLeftTest(){
 
         String expected = "     ________\n" +
                           "     |/     |\n" +
@@ -14,11 +14,11 @@ public class HangmanTests {
                           "     |     / \\\n"+
                           "     |\n"        +
                           " ____|____";
-        String actual = Hangman.getInstance().drawHangman(6);
+        String actual = Hangman.getInstance().drawHangman(0);
         Assertions.assertEquals(expected, actual);
     }
     @Test
-    public void drawHangmanFiveMistakesTest(){
+    public void drawHangmanOneMistakeLeftTest(){
 
         String expected = "     ________\n" +
                 "     |/     |\n" +
@@ -26,10 +26,10 @@ public class HangmanTests {
                 "     |     (_)\n"+
                 "     |     /|\\ \n"+
                 "     |      |\n" +
-                "     |     / \\\n"+
+                "     |     / \n"+
                 "     |\n"        +
                 " ____|____";
-        String actual = Hangman.getInstance().drawHangman(5);
+        String actual = Hangman.getInstance().drawHangman(1);
         Assertions.assertEquals(expected, actual);
     }
 }

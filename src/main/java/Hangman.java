@@ -4,9 +4,9 @@ public class Hangman {
         return hangman;
     }
 
-    public String drawHangman(int mistakes) {
-        switch(mistakes){
-            case 6:
+    public String drawHangman(int mistakesLeft) {
+        switch(mistakesLeft){
+            case 0:
                 return "     ________\n" +
                     "     |/     |\n" +
                     "     |      |\n" +
@@ -16,7 +16,7 @@ public class Hangman {
                     "     |     / \\\n"+
                     "     |\n"        +
                     " ____|____";
-            case 5:
+            case 1:
                 return "     ________\n" +
                     "     |/     |\n" +
                     "     |      |\n" +
@@ -26,7 +26,7 @@ public class Hangman {
                     "     |     / \n"+
                     "     |\n"        +
                     " ____|____";
-            case 4:
+            case 2:
                 return "     ________\n" +
                         "     |/     |\n" +
                         "     |      |\n" +
@@ -46,7 +46,7 @@ public class Hangman {
                         "     |      \n"+
                         "     |\n"        +
                         " ____|____";
-            case 2:
+            case 4:
                 return "     ________\n" +
                         "     |/     |\n" +
                         "     |      |\n" +
@@ -56,7 +56,7 @@ public class Hangman {
                         "     |      \n"+
                         "     |\n"        +
                         " ____|____";
-            case 1:
+            case 5:
                 return "     ________\n" +
                         "     |/     |\n" +
                         "     |      |\n" +
