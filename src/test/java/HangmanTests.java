@@ -17,4 +17,19 @@ public class HangmanTests {
         String actual = Hangman.getInstance().drawHangman(6);
         Assertions.assertEquals(expected, actual);
     }
+    @Test
+    public void drawHangmanFiveMistakesTest(){
+
+        String expected = "     ________\n" +
+                "     |/     |\n" +
+                "     |      |\n" +
+                "     |     (_)\n"+
+                "     |     /|\\ \n"+
+                "     |      |\n" +
+                "     |     / \\\n"+
+                "     |\n"        +
+                " ____|____";
+        String actual = Hangman.getInstance().drawHangman(5);
+        Assertions.assertEquals(expected, actual);
+    }
 }

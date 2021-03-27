@@ -5,10 +5,9 @@ public class Hangman {
     }
 
     public String drawHangman(int mistakes) {
-        String hangmanDrawing = "";
         switch(mistakes){
             case 6:
-            return "     ________\n" +
+                return "     ________\n" +
                     "     |/     |\n" +
                     "     |      |\n" +
                     "     |     (_)\n"+
@@ -17,7 +16,67 @@ public class Hangman {
                     "     |     / \\\n"+
                     "     |\n"        +
                     " ____|____";
+            case 5:
+                return "     ________\n" +
+                    "     |/     |\n" +
+                    "     |      |\n" +
+                    "     |     (_)\n"+
+                    "     |     /|\\ \n"+
+                    "     |      |\n" +
+                    "     |     / \n"+
+                    "     |\n"        +
+                    " ____|____";
+            case 4:
+                return "     ________\n" +
+                        "     |/     |\n" +
+                        "     |      |\n" +
+                        "     |     (_)\n"+
+                        "     |     /|\\ \n"+
+                        "     |      |\n" +
+                        "     |      \n"+
+                        "     |\n"        +
+                        " ____|____";
+            case 3:
+                return "     ________\n" +
+                        "     |/     |\n" +
+                        "     |      |\n" +
+                        "     |     (_)\n"+
+                        "     |     / \\ \n"+
+                        "     |      \n" +
+                        "     |      \n"+
+                        "     |\n"        +
+                        " ____|____";
+            case 2:
+                return "     ________\n" +
+                        "     |/     |\n" +
+                        "     |      |\n" +
+                        "     |     (_)\n"+
+                        "     |     /  \n"+
+                        "     |      \n" +
+                        "     |      \n"+
+                        "     |\n"        +
+                        " ____|____";
+            case 1:
+                return "     ________\n" +
+                        "     |/     |\n" +
+                        "     |      |\n" +
+                        "     |     (_)\n"+
+                        "     |       \n"+
+                        "     |      \n" +
+                        "     |      \n"+
+                        "     |\n"        +
+                        " ____|____";
+            default:
+                return "     ________\n" +
+                        "     |/     |\n" +
+                        "     |      |\n" +
+                        "     |     \n"+
+                        "     |       \n"+
+                        "     |      \n" +
+                        "     |      \n"+
+                        "     |\n"        +
+                        " ____|____";
         }
-        return hangmanDrawing;
+
     }
 }
