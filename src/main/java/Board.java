@@ -48,11 +48,11 @@ public class Board{
 
     public void playTheGame(Word randomWord) {
         String word = randomWord.toString();
-        System.out.println(ANSI_RED + "\n\nLETS PLAY H A N G M A N\n\nYou are allowed to make 6 mistakes.\n\n" + randomWord.description + " (" + word.length() + " letters)\n");
+        System.out.println(ANSI_BLUE + "\n\nLETS PLAY H A N G M A N\n\nYou are allowed to make 6 mistakes.\n\n" + randomWord.description + " (" + word.length() + " letters)\n");
 
         while (!isWordGuessed) {
             if (mistakesLeft <= 0) {
-                System.out.println("GAME IS OVER! \n\nThe word was " + word + "\nPlay again? YES - 1, NO - 2");
+                System.out.println(ANSI_RED + "GAME IS OVER! \n\nThe word was " + word + "\nPlay again? YES - 1, NO - 2");
                 break;
             }
             printTableau(word, guesses);
@@ -60,7 +60,7 @@ public class Board{
                 mistakesLeft--;
             }
             if (printTableau(word, guesses) == word.length()) {
-                System.out.println("You WON!");
+                System.out.println(ANSI_RED_BACKGROUND + ANSI_GREEN + "You WON!");
                 isWordGuessed = true;
                 break;
             }

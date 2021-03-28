@@ -21,17 +21,18 @@ Saving to the new branch
 * There will be an interface Game with methods that Board will implement.
 * Enum class Word that will have words with descriptions
 * Class HangmanDrawing is going to be responsible to draw a hangman
-* 
-*
-*
-*
+* Implement functionality of the game
+* Implement scoring with serializing
+* Implement different colors
+* Implement threading
+* Refactor to abide Object Oriented Design and Principles
 <h2>
     3. Executing the Plan
 </h2>
-*
-*
-*
-*
+*Started with TDD, wrote basic tests for drawing hangman, getting a word, changing a word to char array, hiding a word
+*Created Enum class word
+*Created Game interface, HangmanSketch, Board classes and HangmanApp with main method
+*Implemented basic functionality in Board class. Need to refactor later.
 *
 *
 *
