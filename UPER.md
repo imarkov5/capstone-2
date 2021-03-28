@@ -33,8 +33,8 @@ Saving to the new branch
 *Created Enum class word
 *Created Game interface, HangmanSketch, Board classes and HangmanApp with main method
 *Implemented basic functionality in Board class. Need to refactor later.
-*
-*
+*Created Player class with highest score and score history fields
+*Implemented a function that will restart or quit the game depending on user input
 *
 *
 <h2>
