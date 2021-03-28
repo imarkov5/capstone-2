@@ -9,6 +9,7 @@ public class Board{
     private boolean isWordGuessed = false;
     private List<Character> guesses = new ArrayList<>();
     private Scanner key = new Scanner(System.in);
+    private Player player;
 
     public static final String ANSI_BLACK_BACKGROUND = "\u001B[40m";
     public static final String ANSI_RED_BACKGROUND = "\u001B[41m";
