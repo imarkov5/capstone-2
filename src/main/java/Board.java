@@ -6,10 +6,12 @@ import java.util.Scanner;
 public class Board{
     private ArrayList<Word> words = new ArrayList(Arrays.asList(Word.values()));
     private int mistakesLeft = 6;
-    private boolean isWordGuessed = false;
+    private int maxMistakes = 6;
+    private int maxScore = 21;
+    private boolean isGameOver = false;
     private List<Character> guesses = new ArrayList<>();
     private Scanner key = new Scanner(System.in);
-    private Player player;
+    private Player player = new Player();
 
     public static final String ANSI_BLACK_BACKGROUND = "\u001B[40m";
     public static final String ANSI_RED_BACKGROUND = "\u001B[41m";
@@ -44,33 +46,59 @@ public class Board{
 
     public Word getRandomWord() {
         Word randomWord = words.get((int)(Math.random()*words.size()));
+        words.remove(randomWord);
         return randomWord;
     }
 
-    public void playTheGame(Word randomWord) {
+    public void playGame(Word randomWord) {
         String word = randomWord.toString();
         System.out.println(ANSI_BLUE + "\n\nLETS PLAY H A N G M A N\n\nYou are allowed to make 6 mistakes.\n\n" + randomWord.description + " (" + word.length() + " letters)\n");
-
-        while (!isWordGuessed) {
+        int score = maxScore;
+        while (!isGameOver) {
             if (mistakesLeft <= 0) {
-                System.out.println(ANSI_RED + "GAME IS OVER! \n\nThe word was " + word + "\nPlay again? YES - 1, NO - 2");
+                System.out.println(ANSI_RED + "GAME IS OVER! \n\nYour Highest SCORE: " + player.getHighestScore());
+                isGameOver = true;
+                restartOrQuitGame();
                 break;
             }
             printTableau(word, guesses);
             if (!getGuess(key, word, guesses)) {
                 mistakesLeft--;
+                score -= maxMistakes - mistakesLeft;
+                System.out.println("current score: " + score);
             }
             if (printTableau(word, guesses) == word.length()) {
-                System.out.println(ANSI_RED_BACKGROUND + ANSI_GREEN + "You WON!");
-                isWordGuessed = true;
+                player.addToScoreHistory(score);
+                System.out.println(ANSI_GREEN + "You WON!\n\nYour SCORE: " + score + "\n\nYour Highest SCORE: " + player.getHighestScore());
+                isGameOver = true;
+                restartOrQuitGame();
                 break;
             }
             String hangmanState = HangmanSketch.getInstance().drawHangman(mistakesLeft);
             System.out.println(hangmanState + "\nPossible mistakes left: "+ mistakesLeft);
-
-
+            System.out.println("current score: " + score);
         }
     }
+    public void restartOrQuitGame() {
+
+        System.out.println("Play again : press 1; Quit: press 2");
+        String letter = key.nextLine();
+        if (Character.isDigit(letter.charAt(0)) && letter.length() == 1) {
+            if(letter.charAt(0) == '1'){
+                isGameOver = false;
+                guesses.clear();
+                mistakesLeft = 6;
+                playGame(getRandomWord());
+            }else if(letter.charAt(0) == '2'){
+                System.out.println("Thank you for playing! Have a good one!");
+            }else{
+                restartOrQuitGame();
+            }
+        } else {
+            restartOrQuitGame();
+        }
+    }
+
     public static boolean getGuess(Scanner key, String word, List<Character> guesses) {
         System.out.println("Please enter a letter: ");
         String letter = key.nextLine().toUpperCase();

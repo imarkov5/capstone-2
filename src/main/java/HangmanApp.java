@@ -9,6 +9,6 @@ public class HangmanApp {
 
         Word randomWord = Board.getInstance().getRandomWord();
 
-        Board.getInstance().playTheGame(randomWord);
+        Board.getInstance().playGame(randomWord);
     }
 }
