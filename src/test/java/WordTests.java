@@ -11,18 +11,18 @@ public class WordTests {
         String actual = Board.getInstance().getWords().get(0).toString();
         Assertions.assertEquals(expected, actual);
     }
-    @Test
-    public void wordToCharTest(){
-        boolean expected = true;
-        boolean actual = Arrays.equals(Board.getInstance().wordToChar(), charWord);
-        Assertions.assertEquals(expected, actual);
-    }
-    @Test
-    public void hideWordTest(){
-        char[] hiddenWord = {'X','X','X','X','X','X','X','X','X','X','X'};
-        boolean expected = true;
-        boolean actual = Arrays.equals(hiddenWord, Board.getInstance().hideWord(charWord));
-        Assertions.assertEquals(expected, actual);
-    }
+//    @Test
+//    public void wordToCharTest(){
+//        boolean expected = true;
+//        boolean actual = Arrays.equals(Board.getInstance().wordToChar(), charWord);
+//        Assertions.assertEquals(expected, actual);
+//    }
+//    @Test
+//    public void hideWordTest(){
+//        char[] hiddenWord = {'X','X','X','X','X','X','X','X','X','X','X'};
+//        boolean expected = true;
+//        boolean actual = Arrays.equals(hiddenWord, Board.getInstance().hideWord(charWord));
+//        Assertions.assertEquals(expected, actual);
+//    }
     
 }
