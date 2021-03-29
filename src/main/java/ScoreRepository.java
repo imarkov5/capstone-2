@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class ScoreRepository implements Serializable {
     private double averageScore;
+    private int highestScore;
     private Date date;
 
     public ScoreRepository() {
@@ -14,10 +15,14 @@ public class ScoreRepository implements Serializable {
         this.averageScore = averageScore;
     }
 
+    public void setHighestScore(int highestScore) {
+        this.highestScore = highestScore;
+    }
+
     @Override
     public String toString() {
-        return "" + averageScore +
-                " on " + date +
+        return "AVERAGE score - " + averageScore + " | HIGHEST score - " + highestScore +
+                " | date: " + date +
                 "";
     }
 }

@@ -96,7 +96,7 @@ public class Board{
                 mistakesLeft = 6;
                 playGame(getRandomWord());
             }else if(letter.charAt(0) == '2'){
-                writeAverageToRepo();
+                writeScoresToRepo();
                 System.out.println("Thank you for playing! Have a good one!");
             }else{
                 restartOrQuitGame();
@@ -106,11 +106,12 @@ public class Board{
         }
     }
 
-    private void writeAverageToRepo() throws IOException {
-        ScoreRepository averageScoreRepo = new ScoreRepository();
-        averageScoreRepo.setAverageScore(player.getAverageScore());
+    private void writeScoresToRepo() throws IOException {
+        ScoreRepository scoreRepo = new ScoreRepository();
+        scoreRepo.setAverageScore(player.getAverageScore());
+        scoreRepo.setHighestScore(player.getHighestScore());
         ScoreWriter writer = new ScoreWriter();
-        writer.writeAverageScore(averageScoreRepo, "averageScore");
+        writer.writeAverageScore(scoreRepo, "scoresRepo");
     }
 
     public static boolean getGuess(Scanner key, String word, List<Character> guesses) {
