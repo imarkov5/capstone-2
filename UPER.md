@@ -35,7 +35,7 @@ Saving to the new branch
 *Implemented basic functionality in Board class. Need to refactor later.
 *Created Player class with highest score and score history fields
 *Implemented a function that will restart or quit the game depending on user input
-*
+*Created ScoreRepository and ScoreWriter, implemented saving average score data to external file with Serializable interface.
 *
 <h2>
     4. Reflection / Refactor

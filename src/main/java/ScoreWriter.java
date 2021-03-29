@@ -1,9 +1,9 @@
 import java.io.*;
 
-public class AverageScoreWriter {
+public class ScoreWriter {
 
 
-    public void logAverageScore(AverageScoreRepository averageScoreRepo, String fileName) throws IOException {
+    public void writeAverageScore(ScoreRepository averageScoreRepo, String fileName) throws IOException {
         FileOutputStream fos = new FileOutputStream(fileName);
         ObjectOutputStream oos = new ObjectOutputStream(fos);
         oos.writeObject(averageScoreRepo);
@@ -11,13 +11,13 @@ public class AverageScoreWriter {
         oos.close();
     }
 
-    public AverageScoreRepository readLastAverageScore(String fileName) throws IOException, ClassNotFoundException{
+    public ScoreRepository readLastAverageScore(String fileName) throws IOException, ClassNotFoundException{
         FileInputStream fis = new FileInputStream(fileName);
         ObjectInputStream ois = new ObjectInputStream(fis);
         Object obj = ois.readObject();
         fis.close();
         ois.close();
-        AverageScoreRepository averageScoreDeserialized = (AverageScoreRepository)obj;
+        ScoreRepository averageScoreDeserialized = (ScoreRepository)obj;
         System.out.println("Last Average Score: " + averageScoreDeserialized);
         return averageScoreDeserialized;
     }

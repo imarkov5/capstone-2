@@ -107,10 +107,10 @@ public class Board{
     }
 
     private void writeAverageToRepo() throws IOException {
-        AverageScoreRepository averageScoreRepo = new AverageScoreRepository();
+        ScoreRepository averageScoreRepo = new ScoreRepository();
         averageScoreRepo.setAverageScore(player.getAverageScore());
-        AverageScoreWriter writer = new AverageScoreWriter();
-        writer.logAverageScore(averageScoreRepo, "averageScore");
+        ScoreWriter writer = new ScoreWriter();
+        writer.writeAverageScore(averageScoreRepo, "averageScore");
     }
 
     public static boolean getGuess(Scanner key, String word, List<Character> guesses) {

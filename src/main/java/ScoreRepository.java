@@ -2,11 +2,11 @@
 import java.io.Serializable;
 import java.util.Date;
 
-public class AverageScoreRepository implements Serializable {
+public class ScoreRepository implements Serializable {
     private double averageScore;
     private Date date;
 
-    public AverageScoreRepository() {
+    public ScoreRepository() {
         this.date = new Date();
     }
 
