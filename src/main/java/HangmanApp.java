@@ -8,7 +8,7 @@ public class HangmanApp {
         String fileName = "scoresRepo";
         ScoreWriter averageScoreWriter = new ScoreWriter();
         averageScoreWriter.readLastAverageScore(fileName);
-        Board.getInstance().playGame(Board.getInstance().getRandomWord());
+        Board.getInstance().startGame();
 
     }
 }

@@ -54,9 +54,55 @@ public class Board{
         return randomWord;
     }
 
+    public void startGame() throws IOException {
+        System.out.println(ANSI_BLUE + "\n\nLETS PLAY H A N G M A N\n\nPress 1 to play | Press 2 for instructions");
+        String letter = key.nextLine();
+        if (Character.isDigit(letter.charAt(0)) && letter.length() == 1) {
+            if(letter.charAt(0) == '1'){
+                playGame(getRandomWord());
+            }else if(letter.charAt(0) == '2'){
+                printInstructions();
+                playGame(getRandomWord());
+            }else{
+                System.out.println(ANSI_RED + "\n\nPress 1 to play | Press 2 for instructions");
+                startGame();
+            }
+        } else {
+            System.out.println(ANSI_RED + "\n\nPress 1 to play | Press 2 for instructions");
+            startGame();
+        }
+    }
+
+    private void printInstructions() {
+        try{
+            Thread.sleep(1500);
+            System.out.println("Objective: guess the word before your man gets hung.");
+            Thread.sleep(1500);
+            System.out.println("You will get a secret word to guess, a description and gallows");
+            Thread.sleep(1500);
+            System.out.println("Every wrong answer will draw a part of the man, 6 in total");
+            Thread.sleep(1500);
+            System.out.println("When the whole man drawn, game is over.");
+            Thread.sleep(1500);
+            System.out.println("You get 21 points at the beginning of the game.");
+            Thread.sleep(1500);
+            System.out.println("For every mistake you loose points, 1 for 1st mistake, 2 for 2nd mistake, 3 for 3rd mistake and so forth.");
+            Thread.sleep(1500);
+            System.out.println("You can play as many games as you'd like.");
+            Thread.sleep(1500);
+            System.out.println("GOOD LUCK!");
+            Thread.sleep(1500);
+        }catch (InterruptedException e){
+            e.printStackTrace();
+        }
+
+
+
+    }
+
     public void playGame(Word randomWord) throws IOException {
         String word = randomWord.toString();
-        System.out.println(ANSI_BLUE + "\n\nLETS PLAY H A N G M A N\n\nYou are allowed to make 6 mistakes.\n\n" + randomWord.description + " (" + word.length() + " letters)\n");
+        System.out.println(ANSI_BLUE + "\n\nDescription: " + randomWord.description + " (" + word.length() + " letters)\n");
         int score = maxScore;
         while (!isGameOver) {
             if (mistakesLeft <= 0) {
