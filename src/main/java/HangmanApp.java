@@ -5,10 +5,7 @@ public class HangmanApp {
 
     public static void main(String[] args) {
 
-        ArrayList words = Board.getInstance().getWords();
 
-        Word randomWord = Board.getInstance().getRandomWord();
-
-        Board.getInstance().playGame(randomWord);
+        Board.getInstance().playGame(Board.getInstance().getRandomWord());
     }
 }

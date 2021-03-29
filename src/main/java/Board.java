@@ -56,7 +56,8 @@ public class Board{
         int score = maxScore;
         while (!isGameOver) {
             if (mistakesLeft <= 0) {
-                System.out.println(ANSI_RED + "GAME IS OVER! \n\nYour Highest SCORE: " + player.getHighestScore());
+                player.setAverageScore();
+                System.out.println(ANSI_RED + "GAME IS OVER! \n\nYour Highest SCORE: " + player.getHighestScore() + "\nAverage Score: " + player.getAverageScore());
                 isGameOver = true;
                 restartOrQuitGame();
                 break;
@@ -69,7 +70,8 @@ public class Board{
             }
             if (printTableau(word, guesses) == word.length()) {
                 player.addToScoreHistory(score);
-                System.out.println(ANSI_GREEN + "You WON!\n\nYour SCORE: " + score + "\n\nYour Highest SCORE: " + player.getHighestScore());
+                player.setAverageScore();
+                System.out.println(ANSI_GREEN + "You WON!\n\nYour Current SCORE: " + score + "\n\nHighest SCORE: " + player.getHighestScore() + "\nAverage Score: " + player.getAverageScore());
                 isGameOver = true;
                 restartOrQuitGame();
                 break;
