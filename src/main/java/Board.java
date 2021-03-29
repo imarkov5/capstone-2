@@ -74,24 +74,50 @@ public class Board{
     }
 
     private void printInstructions() {
+
         try{
             Thread.sleep(1500);
-            System.out.println("Objective: guess the word before your man gets hung.");
+            System.out.println("Objective: guess the word before your man gets hung.\n");
+            Thread.sleep(1000);
+            String[] rules1 = {"You ", "will ", "get ", "a ", "secret ", "word ", "to ", "guess ", "a ", "description ", "and ", "gallows.\n\n"};
+            for(String s : rules1){
+                System.out.print(s);
+                Thread.sleep(200);
+            }
+//            System.out.println("You will get a secret word to guess, a description and gallows.\n");
+            Thread.sleep(1000);
+            String[] rules2 = {"Every ", "wrong ", "answer ", "will ", "draw ", "a ", "part ", "of ", "the ", "man, ", "and ", "6 ", "in ", "total.\n\n"};
+            for(String s : rules2){
+                System.out.print(s);
+                Thread.sleep(200);
+            }
+//            System.out.println("\nEvery wrong answer will draw a part of the man, 6 in total\n");
+            Thread.sleep(1000);
+            String[] rules3 = {"When ", "the ", "whole ", "man ", "drawn, ", "game ", "is ", "over.\n\n"};
+            for(String s : rules3){
+                System.out.print(s);
+                Thread.sleep(200);
+            }
+//            System.out.println("When the whole man drawn, game is over.\n");
+            Thread.sleep(1000);
+            String[] rules4 = {"You ", "get ", "21 ", "points ", "at ", "the ", "beginning ","of ","the ","game.\n\n"};
+            for(String s : rules4){
+                System.out.print(s);
+                Thread.sleep(200);
+            }
+//            System.out.println("You get 21 points at the beginning of the game.\n");
             Thread.sleep(1500);
-            System.out.println("You will get a secret word to guess, a description and gallows");
+            String[] rules5 = {"For ", "every ", "mistake ", "you ", "loose ", "points ", "1 for the 1st mistake, ","2 for the 2nd mistake, ","3 for the 3rd mistake ","and so ", "forth\n\n"};
+            for(String s : rules5){
+                System.out.print(s);
+                Thread.sleep(200);
+            }
+//            System.out.println("For every mistake you loose points, 1 for 1st mistake, 2 for 2nd mistake, 3 for 3rd mistake and so forth.\n");
+
+//            System.out.println("You can play as many games as you'd like.\n");
             Thread.sleep(1500);
-            System.out.println("Every wrong answer will draw a part of the man, 6 in total");
-            Thread.sleep(1500);
-            System.out.println("When the whole man drawn, game is over.");
-            Thread.sleep(1500);
-            System.out.println("You get 21 points at the beginning of the game.");
-            Thread.sleep(1500);
-            System.out.println("For every mistake you loose points, 1 for 1st mistake, 2 for 2nd mistake, 3 for 3rd mistake and so forth.");
-            Thread.sleep(1500);
-            System.out.println("You can play as many games as you'd like.");
-            Thread.sleep(1500);
-            System.out.println("GOOD LUCK!");
-            Thread.sleep(1500);
+            System.out.println("GOOD LUCK!\n");
+            Thread.sleep(3000);
         }catch (InterruptedException e){
             e.printStackTrace();
         }
