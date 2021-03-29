@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -12,6 +13,9 @@ public class Board{
     private List<Character> guesses = new ArrayList<>();
     private Scanner key = new Scanner(System.in);
     private Player player = new Player();
+
+
+
 
     public static final String ANSI_BLACK_BACKGROUND = "\u001B[40m";
     public static final String ANSI_RED_BACKGROUND = "\u001B[41m";
@@ -50,7 +54,7 @@ public class Board{
         return randomWord;
     }
 
-    public void playGame(Word randomWord) {
+    public void playGame(Word randomWord) throws IOException {
         String word = randomWord.toString();
         System.out.println(ANSI_BLUE + "\n\nLETS PLAY H A N G M A N\n\nYou are allowed to make 6 mistakes.\n\n" + randomWord.description + " (" + word.length() + " letters)\n");
         int score = maxScore;
@@ -81,7 +85,7 @@ public class Board{
             System.out.println("current score: " + score);
         }
     }
-    public void restartOrQuitGame() {
+    public void restartOrQuitGame() throws IOException {
 
         System.out.println("Play again : press 1; Quit: press 2");
         String letter = key.nextLine();
@@ -92,6 +96,7 @@ public class Board{
                 mistakesLeft = 6;
                 playGame(getRandomWord());
             }else if(letter.charAt(0) == '2'){
+                writeAverageToRepo();
                 System.out.println("Thank you for playing! Have a good one!");
             }else{
                 restartOrQuitGame();
@@ -99,6 +104,13 @@ public class Board{
         } else {
             restartOrQuitGame();
         }
+    }
+
+    private void writeAverageToRepo() throws IOException {
+        AverageScoreRepository averageScoreRepo = new AverageScoreRepository();
+        averageScoreRepo.setAverageScore(player.getAverageScore());
+        AverageScoreWriter writer = new AverageScoreWriter();
+        writer.logAverageScore(averageScoreRepo, "averageScore");
     }
 
     public static boolean getGuess(Scanner key, String word, List<Character> guesses) {
