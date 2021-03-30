@@ -18,7 +18,7 @@ public class ScoreWriter {
         fis.close();
         ois.close();
         ScoreRepository averageScoreDeserialized = (ScoreRepository)obj;
-        System.out.println("Your last scores: " + averageScoreDeserialized);
+        System.out.println(ColorFont.ANSI_BLUE.code + "Your last scores: " + averageScoreDeserialized);
         return averageScoreDeserialized;
     }
 }

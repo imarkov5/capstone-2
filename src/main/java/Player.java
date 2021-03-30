@@ -8,6 +8,7 @@ public class Player {
     private int highestScore = 0;
     private double averageScore = 0;
     List<Integer> scoreHistory = new ArrayList<>();
+    
 
     public int getHighestScore(){
         if(scoreHistory.size() == 0){
