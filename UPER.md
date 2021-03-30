@@ -36,7 +36,7 @@ Saving to the new branch
 *Created Player class with highest score and score history fields
 *Implemented a function that will restart or quit the game depending on user input
 *Created ScoreRepository and ScoreWriter, implemented saving average score data to external file with Serializable interface.
-*
+*Created Enum classes for fonts and colors, worked on UI
 <h2>
     4. Reflection / Refactor
 </h2>
