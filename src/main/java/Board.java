@@ -17,26 +17,6 @@ public class Board{
 
 
 
-    public static final String ANSI_BLACK_BACKGROUND = "\u001B[40m";
-    public static final String ANSI_RED_BACKGROUND = "\u001B[41m";
-    public static final String ANSI_GREEN_BACKGROUND = "\u001B[42m";
-    public static final String ANSI_YELLOW_BACKGROUND = "\u001B[43m";
-    public static final String ANSI_BLUE_BACKGROUND = "\u001B[44m";
-    public static final String ANSI_PURPLE_BACKGROUND = "\u001B[45m";
-    public static final String ANSI_CYAN_BACKGROUND = "\u001B[46m";
-    public static final String ANSI_WHITE_BACKGROUND = "\u001B[47m";
-
-    public static final String ANSI_RESET = "\u001B[0m";
-    public static final String ANSI_BLACK = "\u001B[30m";
-    public static final String ANSI_RED = "\u001B[31m";
-    public static final String ANSI_GREEN = "\u001B[32m";
-    public static final String ANSI_YELLOW = "\u001B[33m";
-    public static final String ANSI_BLUE = "\u001B[34m";
-    public static final String ANSI_PURPLE = "\u001B[35m";
-    public static final String ANSI_CYAN = "\u001B[36m";
-    public static final String ANSI_WHITE = "\u001B[37m";
-
-
 
     private static Board board = new Board();
 
@@ -55,7 +35,7 @@ public class Board{
     }
 
     public void startGame() throws IOException {
-        System.out.println(ANSI_BLUE + "\n\nLETS PLAY H A N G M A N\n\nPress 1 to play | Press 2 for instructions");
+        System.out.println(ColorFont.ANSI_MAGENTA.code + "\n\n\n" + FunFont.WELCOME.phrase + "\n\n" + ColorFont.ANSI_MAGENTA.code + FunFont.INSTRUCTIONS.phrase);
         String letter = key.nextLine();
         if (Character.isDigit(letter.charAt(0)) && letter.length() == 1) {
             if(letter.charAt(0) == '1'){
@@ -64,11 +44,11 @@ public class Board{
                 printInstructions();
                 playGame(getRandomWord());
             }else{
-                System.out.println(ANSI_RED + "\n\nPress 1 to play | Press 2 for instructions");
+                System.out.println(ColorFont.ANSI_RED.code + "\n\nPress 1 to play | Press 2 for instructions");
                 startGame();
             }
         } else {
-            System.out.println(ANSI_RED + "\n\nPress 1 to play | Press 2 for instructions");
+            System.out.println(ColorFont.ANSI_RED.code + "\n\nPress 1 to play | Press 2 for instructions");
             startGame();
         }
     }
@@ -77,63 +57,54 @@ public class Board{
 
         try{
             Thread.sleep(1500);
-            System.out.println("Objective: guess the word before your man gets hung.\n");
+            System.out.println(ColorFont.ANSI_RED.code + "The rules are simple.\n\n");
             Thread.sleep(1000);
-            String[] rules1 = {"You ", "will ", "get ", "a ", "secret ", "word ", "to ", "guess ", "a ", "description ", "and ", "gallows.\n\n"};
+            String[] rules1 = {"Your ", "goal ", "is ", "to ", "figure ", "out ", "the ", "word ", "before ", "your ", "man ","gets " ,"hung.\n\n"};
             for(String s : rules1){
                 System.out.print(s);
                 Thread.sleep(200);
             }
-//            System.out.println("You will get a secret word to guess, a description and gallows.\n");
             Thread.sleep(1000);
-            String[] rules2 = {"Every ", "wrong ", "answer ", "will ", "draw ", "a ", "part ", "of ", "the ", "man, ", "and ", "6 ", "in ", "total.\n\n"};
+            String[] rules2 = {"Enter ", "in ", "letters ", "one ", "by ", "one, ", "and ", "the ", "game ", "will ", "tell ", "you ", "which ","ones ","are ","right ","and " ,"wrong.\n\n"};
             for(String s : rules2){
                 System.out.print(s);
                 Thread.sleep(200);
             }
-//            System.out.println("\nEvery wrong answer will draw a part of the man, 6 in total\n");
             Thread.sleep(1000);
-            String[] rules3 = {"When ", "the ", "whole ", "man ", "drawn, ", "game ", "is ", "over.\n\n"};
+            String[] rules3 = {"For ", "an ", "added ", "challenge, ", "you ", "will ", "get ","21 points ","at ", "the ","start ", "of ","the ", "game.\n\n"};
             for(String s : rules3){
                 System.out.print(s);
                 Thread.sleep(200);
             }
-//            System.out.println("When the whole man drawn, game is over.\n");
             Thread.sleep(1000);
-            String[] rules4 = {"You ", "get ", "21 ", "points ", "at ", "the ", "beginning ","of ","the ","game.\n\n"};
+            String[] rules4 = {"For ", "the ", "first ", "mistake ", "you ", "will ", "lose ","1 point, ","for ","the ","2nd mistake - ","2 points, ","etc, ","possible ","max mistakes - ","6","\n\n"};
             for(String s : rules4){
                 System.out.print(s);
                 Thread.sleep(200);
             }
-//            System.out.println("You get 21 points at the beginning of the game.\n");
             Thread.sleep(1500);
-            String[] rules5 = {"For ", "every ", "mistake ", "you ", "loose ", "points ", "1 for the 1st mistake, ","2 for the 2nd mistake, ","3 for the 3rd mistake ","and so ", "forth\n\n"};
+            String[] rules5 = {"Try ", "to ", "get ", "the ", "highest ", "score ", "possible. ","The ","game ","will ","keep ","track ","of your ","average ","score ", "as well\n\n"};
             for(String s : rules5){
                 System.out.print(s);
                 Thread.sleep(200);
             }
-//            System.out.println("For every mistake you loose points, 1 for 1st mistake, 2 for 2nd mistake, 3 for 3rd mistake and so forth.\n");
-
-//            System.out.println("You can play as many games as you'd like.\n");
             Thread.sleep(1500);
             System.out.println("GOOD LUCK!\n");
             Thread.sleep(3000);
         }catch (InterruptedException e){
             e.printStackTrace();
         }
-
-
-
     }
 
     public void playGame(Word randomWord) throws IOException {
         String word = randomWord.toString();
-        System.out.println(ANSI_BLUE + "\n\nDescription: " + randomWord.description + " (" + word.length() + " letters)\n");
+        System.out.println(ColorFont.ANSI_BLUE.code + FunFont.GUESS.phrase + ColorFont.ANSI_PURPLE.code +randomWord.description + " (" + word.length() + " letters)\n\n\n");
         int score = maxScore;
         while (!isGameOver) {
             if (mistakesLeft <= 0) {
                 player.setAverageScore();
-                System.out.println(ANSI_RED + "GAME IS OVER! \n\nYour Highest SCORE: " + player.getHighestScore() + "\nAverage Score: " + player.getAverageScore());
+                System.out.println(ColorFont.ANSI_RED.code+ FunFont.GAME_OVER.phrase +
+                        "The word was "+ randomWord.name() + ColorFont.ANSI_BLUE.code + "\n\nYour HIGHEST SCORE: " + player.getHighestScore() + "\nAVERAGE SCORE: " + player.getAverageScore());
                 isGameOver = true;
                 restartOrQuitGame();
                 break;
@@ -142,24 +113,25 @@ public class Board{
             if (!getGuess(key, word, guesses)) {
                 mistakesLeft--;
                 score -= maxMistakes - mistakesLeft;
-                System.out.println("current score: " + score);
+//                System.out.println(ColorFont.ANSI_BLUE.code + "CURRENT SCORE: " + score + "\n\n\n");
             }
             if (printTableau(word, guesses) == word.length()) {
                 player.addToScoreHistory(score);
                 player.setAverageScore();
-                System.out.println(ANSI_GREEN + "You WON!\n\nYour Current SCORE: " + score + "\n\nHighest SCORE: " + player.getHighestScore() + "\nAverage Score: " + player.getAverageScore());
+                System.out.println(ColorFont.ANSI_PURPLE.code + FunFont.WIN.phrase +
+                        ColorFont.ANSI_BLUE.code + "CURRENT SCORE: " + score + "\n\nHighest SCORE: " + player.getHighestScore() + "\nAverage Score: " + player.getAverageScore());
                 isGameOver = true;
                 restartOrQuitGame();
                 break;
             }
             String hangmanState = HangmanSketch.getInstance().drawHangman(mistakesLeft);
-            System.out.println(hangmanState + "\nPossible mistakes left: "+ mistakesLeft);
-            System.out.println("current score: " + score);
+            System.out.println(hangmanState + ColorFont.ANSI_YELLOW.code +"\n\nMISTAKES LEFT: "+ mistakesLeft);
+            System.out.println(ColorFont.ANSI_BLUE.code + "CURRENT SCORE: " + score + "\n\n\n");
         }
     }
     public void restartOrQuitGame() throws IOException {
 
-        System.out.println("Play again : press 1; Quit: press 2");
+        System.out.println(ColorFont.ANSI_GREEN.code + "\n\nPress 1 to PLAY again | Press 2 to QUIT");
         String letter = key.nextLine();
         if (Character.isDigit(letter.charAt(0)) && letter.length() == 1) {
             if(letter.charAt(0) == '1'){
@@ -169,7 +141,7 @@ public class Board{
                 playGame(getRandomWord());
             }else if(letter.charAt(0) == '2'){
                 writeScoresToRepo();
-                System.out.println("Thank you for playing! Have a good one!");
+                System.out.println(ColorFont.ANSI_PURPLE.code+FunFont.SEE_YOU_SOON.phrase);
             }else{
                 restartOrQuitGame();
             }
@@ -187,13 +159,13 @@ public class Board{
     }
 
     public static boolean getGuess(Scanner key, String word, List<Character> guesses) {
-        System.out.println("Please enter a letter: ");
+        System.out.println(ColorFont.ANSI_GREEN.code + FunFont.LETTER.phrase);
         String letter = key.nextLine().toUpperCase();
         if(board.checkForValidInput(letter)) {
             guesses.add(letter.charAt(0));
-            System.out.print("Letters used: ");
+            System.out.print(ColorFont.ANSI_CYAN.code + "LETTERS USED: ");
             guesses.stream().forEach(System.out :: print);
-            System.out.println();
+            System.out.println("\n\n");
         }
         return word.contains(letter);
     }
@@ -202,10 +174,10 @@ public class Board{
         int countRightGuesses = 0;
         for(int i = 0; i < word.length(); i++){
             if(guesses.contains(word.charAt(i))){
-                System.out.print(word.charAt(i));
+                System.out.print(" "+ word.charAt(i)+ " ");
                 countRightGuesses++;
             }else{
-                System.out.print("-");
+                System.out.print(ColorFont.ANSI_RED.code + " - ");
             }
         }
         System.out.println("\n");
@@ -214,7 +186,7 @@ public class Board{
 
     public boolean checkForValidInput(String letter) {
             while(letter.length() != 1 || Character.isDigit(letter.charAt(0)) || (!(letter.charAt(0) >= 'A' && letter.charAt(0) <= 'Z') && !(letter.charAt(0) >= 'a' && letter.charAt(0) <= 'z'))){
-                System.out.println("Invalid input. Please enter a letter");
+                System.out.println(ColorFont.ANSI_YELLOW.code + "Invalid input. Please enter a letter");
                 letter = key.nextLine().toUpperCase();
             }
             return true;

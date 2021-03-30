@@ -1,5 +1,5 @@
 public enum Word {
-    INHERITANCE ("The object-oriented way to become wealthy"), FUTURE ("Always in front of you, but can't be seen"), ECHO ("Can't talk but will reply when spoken to") ;
+    INHERITANCE ("THE OBJECT-ORIENTED WAY TO BECOME WEALTHY"), FUTURE ("ALWAYS IN FRONT OF YOU, BUT CAN'T BE SEEN"), ECHO ("CAN'T TALK BUT WILL REPLY WHEN SPOKEN TO") ;
     final String description;
     Word(String desc){
         this.description = desc;

@@ -8,7 +8,7 @@ public class HangmanSketch {
     public String drawHangman(int mistakesLeft) {
         String hangmanState;
         if(mistakesLeft == 6){
-            return hangmanState = "     ________\n" +
+            return hangmanState = "\n\n\n     ________\n" +
                     "     |/     |\n" +
                     "     |      |\n" +
                     "     |     \n"+
@@ -16,9 +16,9 @@ public class HangmanSketch {
                     "     |      \n" +
                     "     |      \n"+
                     "     |\n"        +
-                    " ____|____";
+                    " ____|____\n\n\n";
         }else if(mistakesLeft == 5){
-            return hangmanState = "     ________\n" +
+            return hangmanState = "\n\n\n     ________\n" +
                     "     |/     |\n" +
                     "     |      \n" +
                     "     |     \n"+
@@ -26,9 +26,9 @@ public class HangmanSketch {
                     "     |      \n" +
                     "     |      \n"+
                     "     |\n"        +
-                    " ____|____";
+                    " ____|____\n\n\n";
         }else if(mistakesLeft == 4){
-            return hangmanState = "     ________\n" +
+            return hangmanState = "\n\n\n     ________\n" +
                     "     |/     |\n" +
                     "     |      |\n" +
                     "     |     (_)\n"+
@@ -36,9 +36,9 @@ public class HangmanSketch {
                     "     |      \n" +
                     "     |      \n"+
                     "     |\n"        +
-                    " ____|____";
+                    " ____|____\n\n\n";
         }else if(mistakesLeft == 3){
-            return hangmanState = "     ________\n" +
+            return hangmanState = "\n\n\n     ________\n" +
                     "     |/     |\n" +
                     "     |      |\n" +
                     "     |     (_)\n"+
@@ -46,9 +46,9 @@ public class HangmanSketch {
                     "     |      \n" +
                     "     |      \n"+
                     "     |\n"        +
-                    " ____|____";
+                    " ____|____\n\n\n";
         }else if(mistakesLeft == 2){
-            return hangmanState = "     ________\n" +
+            return hangmanState = "\n\n\n     ________\n" +
                     "     |/     |\n" +
                     "     |      |\n" +
                     "     |     (_)\n"+
@@ -56,9 +56,9 @@ public class HangmanSketch {
                     "     |      |\n" +
                     "     |      \n"+
                     "     |\n"        +
-                    " ____|____";
+                    " ____|____\n\n\n";
         }else if(mistakesLeft == 1){
-            return hangmanState = "     ________\n" +
+            return hangmanState = "\n\n\n     ________\n" +
                     "     |/     |\n" +
                     "     |      |\n" +
                     "     |     (_)\n"+
@@ -66,9 +66,9 @@ public class HangmanSketch {
                     "     |      |\n" +
                     "     |     / \n"+
                     "     |\n"        +
-                    " ____|____";
+                    " ____|____\n\n\n";
         }else{
-            return hangmanState = "     ________\n" +
+            return hangmanState = "\n\n\n     ________\n" +
                     "     |/     |\n" +
                     "     |      |\n" +
                     "     |     (_)\n"+
@@ -76,7 +76,7 @@ public class HangmanSketch {
                     "     |      |\n" +
                     "     |     / \\\n"+
                     "     |\n"        +
-                    " ____|____";
+                    " ____|____\n\n\n";
         }
     }
 
