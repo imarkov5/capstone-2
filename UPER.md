@@ -52,8 +52,8 @@ Saving to the new branch
 <h2>
     4. Reflection / Refactor
 </h2>
-*
-*
+*Next time I would implement GUI
+*Also would take more time to study OOD and try to find better implementation.
 *
 *
 *
