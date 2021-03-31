@@ -23,9 +23,6 @@ public class Game {
 
     public void playGame(Word randomWord) throws IOException {
         String word = randomWord.toString();
-//        System.out.println(ColorFont.ANSI_RED.code + ColorBackground.ANSI_BLUE_BACKGROUND.key + FunFont.GUESS.phrase + ColorFont.ANSI_RESET.code + ColorFont.ANSI_MAGENTA.code + "" +
-////                "\n\n                                                                                                                                   **********  " + randomWord.description + " (" + word.length() + " letters)  **********\n\n\n" + ColorFont.ANSI_RESET.code);
-
         System.out.println(ColorFont.ANSI_WHITE.code+ FunFont.GUESS.phrase + ColorFont.ANSI_MAGENTA.code + "" +
                 "\n\n**********  " + randomWord.description + " (" + word.length() + " letters)  **********\n\n\n" + ColorFont.ANSI_RESET.code);
         int score = maxScore;
@@ -90,7 +87,7 @@ public class Game {
         String letter = key.nextLine().toUpperCase();
         if(checkForValidInput(letter, key)) {
             guesses.add(letter.charAt(0));
-            System.out.print(ColorFont.ANSI_WHITE.code + "LETTERS USED: " + ColorFont.ANSI_RED.code);
+            System.out.print(ColorFont.ANSI_WHITE.code + "LETTERS USED: " + ColorFont.ANSI_CYAN.code);
             guesses.stream().forEach(System.out :: print);
             System.out.println("\n\n");
         }
