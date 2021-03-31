@@ -5,17 +5,14 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Game {
-    private ArrayList<Word> words = new ArrayList(Arrays.asList(Word.values()));
+    private final ArrayList<Word> words = new ArrayList(Arrays.asList(Word.values()));
     private int mistakesLeft = 6;
-    private int maxMistakes = 6;
-    private int maxScore = 21;
+    private final int maxMistakes = 6;
+    private final int maxScore = 21;
     private boolean isGameOver = false;
-    private List<Character> guesses = new ArrayList<>();
+    private final List<Character> guesses = new ArrayList<>();
     protected Scanner key = new Scanner(System.in);
-    private Player player = new Player();
-    public ArrayList getWords() {
-        return this.words;
-    }
+    private Player player = Player.getInstance();
 
 
     public Word getRandomWord() {
@@ -26,8 +23,11 @@ public class Game {
 
     public void playGame(Word randomWord) throws IOException {
         String word = randomWord.toString();
-        System.out.println(ColorFont.ANSI_RED.code + ColorBackground.ANSI_BLUE_BACKGROUND.key + FunFont.GUESS.phrase + ColorFont.ANSI_RESET.code + ColorFont.ANSI_MAGENTA.code + "" +
-                "\n\n                                                                                                                                   **********  " + randomWord.description + " (" + word.length() + " letters)  **********\n\n\n" + ColorFont.ANSI_RESET.code);
+//        System.out.println(ColorFont.ANSI_RED.code + ColorBackground.ANSI_BLUE_BACKGROUND.key + FunFont.GUESS.phrase + ColorFont.ANSI_RESET.code + ColorFont.ANSI_MAGENTA.code + "" +
+//                "\n\n                                                                                                                                   **********  " + randomWord.description + " (" + word.length() + " letters)  **********\n\n\n" + ColorFont.ANSI_RESET.code);
+
+        System.out.println(ColorFont.ANSI_WHITE.code+ FunFont.GUESS.phrase + ColorFont.ANSI_MAGENTA.code + "" +
+                "\n\n**********  " + randomWord.description + " (" + word.length() + " letters)  **********\n\n\n" + ColorFont.ANSI_RESET.code);
         int score = maxScore;
         printTableau(word, guesses);
         while (!isGameOver) {
@@ -88,7 +88,6 @@ public class Game {
     public static boolean getGuess(Scanner key, String word, List<Character> guesses) {
         System.out.println(ColorFont.ANSI_GREEN.code + FunFont.ENTER_LETTER.phrase);
         String letter = key.nextLine().toUpperCase();
-        System.out.println("this letter " + letter);
         if(checkForValidInput(letter, key)) {
             guesses.add(letter.charAt(0));
             System.out.print(ColorFont.ANSI_WHITE.code + "LETTERS USED: " + ColorFont.ANSI_RED.code);
@@ -100,13 +99,13 @@ public class Game {
 
     public static int printTableau(String word, List guesses) {
         int countRightGuesses = 0;
-        System.out.print("                                                                                                   ");
+        System.out.print("                                                                                                                                                               ");
         for(int i = 0; i < word.length(); i++){
             if(guesses.contains(word.charAt(i))){
                 System.out.print(" "+ word.charAt(i)+ " ");
                 countRightGuesses++;
             }else{
-                System.out.print(ColorFont.ANSI_PURPLE.code + " - " + ColorFont.ANSI_BLUE.code);
+                System.out.print(ColorFont.ANSI_RED.code + " - " + ColorFont.ANSI_BLUE.code);
             }
         }
         System.out.println("\n");
@@ -119,5 +118,10 @@ public class Game {
             letter = key.nextLine().toUpperCase();
         }
         return true;
+    }
+    public static void readLastScores() throws IOException, ClassNotFoundException {
+        String fileName = "scoresRepo";
+        ScoreWriter averageScoreWriter = new ScoreWriter();
+        averageScoreWriter.readLastAverageScore(fileName);
     }
 }

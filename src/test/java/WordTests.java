@@ -5,12 +5,12 @@ import java.util.Arrays;
 
 public class WordTests {
     char[] charWord = {'I','N','H','E','R','I','T','A','N','C','E'};
-    @Test
-    public void getWordTest(){
-        String expected = "INHERITANCE";
-        String actual = Board.getInstance().getWords().get(0).toString();
-        Assertions.assertEquals(expected, actual);
-    }
+//    @Test
+//    public void getWordTest(){
+//        String expected = "INHERITANCE";
+//        String actual = Board.getInstance().getWords().get(0).toString();
+//        Assertions.assertEquals(expected, actual);
+//    }
 //    @Test
 //    public void wordToCharTest(){
 //        boolean expected = true;
