@@ -14,6 +14,7 @@ public class PlayerTests {
         Double actual = Player.getInstance().getAverageScore();
         Assertions.assertEquals(expected, actual);
     }
+    @Test
     public void getHighestScoreTest(){
         Player.getInstance().addToScoreHistory(21);
         Player.getInstance().addToScoreHistory(6);
