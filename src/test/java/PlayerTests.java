@@ -9,7 +9,10 @@ public class PlayerTests {
 
     @Test
     public void getAverageScoreTest(){
-        List<Integer> scoreHistory = new ArrayList<>(Arrays.asList(20,11,11));
+        Player.getInstance().addToScoreHistory(20);
+        Player.getInstance().addToScoreHistory(11);
+        Player.getInstance().addToScoreHistory(11);
+        Player.getInstance().setAverageScore();
         Double expected = 14.0;
         Double actual = Player.getInstance().getAverageScore();
         Assertions.assertEquals(expected, actual);
