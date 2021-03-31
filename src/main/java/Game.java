@@ -24,7 +24,7 @@ public class Game {
     public void playGame(Word randomWord) throws IOException {
         String word = randomWord.toString();
 //        System.out.println(ColorFont.ANSI_RED.code + ColorBackground.ANSI_BLUE_BACKGROUND.key + FunFont.GUESS.phrase + ColorFont.ANSI_RESET.code + ColorFont.ANSI_MAGENTA.code + "" +
-//                "\n\n                                                                                                                                   **********  " + randomWord.description + " (" + word.length() + " letters)  **********\n\n\n" + ColorFont.ANSI_RESET.code);
+////                "\n\n                                                                                                                                   **********  " + randomWord.description + " (" + word.length() + " letters)  **********\n\n\n" + ColorFont.ANSI_RESET.code);
 
         System.out.println(ColorFont.ANSI_WHITE.code+ FunFont.GUESS.phrase + ColorFont.ANSI_MAGENTA.code + "" +
                 "\n\n**********  " + randomWord.description + " (" + word.length() + " letters)  **********\n\n\n" + ColorFont.ANSI_RESET.code);
@@ -121,7 +121,7 @@ public class Game {
     }
     public static void readLastScores() throws IOException, ClassNotFoundException {
         String fileName = "scoresRepo";
-        ScoreWriter averageScoreWriter = new ScoreWriter();
-        averageScoreWriter.readLastAverageScore(fileName);
+        ScoreWriter scoreWriter = new ScoreWriter();
+        scoreWriter.readLastAverageScore(fileName);
     }
 }
