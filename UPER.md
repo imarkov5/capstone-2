@@ -53,10 +53,10 @@ Saving to the new branch
     4. Reflection / Refactor
 </h2>
 *Next time I would implement GUI
-*Also would take more time to study OOD and try to find better implementation.
-*
-*
-*
-*
+*Draw custom hangman
+*Implement 2 player option
+*Also would take more time to study OOD and try to find better/cleaner organization.
+*Different difficulty levels
+*Option to choose a theme, Java, history, geography and so on.
 *
 *
