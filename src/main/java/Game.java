@@ -6,9 +6,9 @@ import java.util.Scanner;
 
 public class Game {
     private final ArrayList<Word> words = new ArrayList(Arrays.asList(Word.values()));
-    private int mistakesLeft = 6;
-    private final int maxMistakes = 6;
-    private final int maxScore = 21;
+    private int MISTAKES_LEFT = 6;
+    private final int MAX_MISTAKES = 6;
+    private final int MAX_SCORE = 21;
     private boolean isGameOver = false;
     private final List<Character> guesses = new ArrayList<>();
     protected Scanner key = new Scanner(System.in);
@@ -31,10 +31,10 @@ public class Game {
         String word = randomWord.toString();
         System.out.println(ColorFont.ANSI_WHITE.code+ FunFont.GUESS.phrase + ColorFont.ANSI_MAGENTA.code + "" +
                 "\n\n**********  " + randomWord.description + " (" + word.length() + " letters)  **********\n\n\n" + ColorFont.ANSI_RESET.code);
-        int score = maxScore;
+        int score = MAX_SCORE;
         printTableau(word, guesses);
         while (!isGameOver) {
-            if (mistakesLeft <= 0) {
+            if (MISTAKES_LEFT <= 0) {
                 player.addToScoreHistory(score);
                 player.setAverageScore();
                 System.out.println(ColorFont.ANSI_RED.code+ FunFont.GAME_OVER.phrase +
@@ -44,8 +44,8 @@ public class Game {
                 break;
             }
             if (!getGuess(key, word, guesses)) {
-                mistakesLeft--;
-                score -= maxMistakes - mistakesLeft;
+                MISTAKES_LEFT--;
+                score -= MAX_MISTAKES - MISTAKES_LEFT;
             }
             if (printTableau(word, guesses) == word.length()) {
                 player.addToScoreHistory(score);
@@ -56,8 +56,8 @@ public class Game {
                 restartOrQuitGame();
                 break;
             }
-            String hangmanState = HangmanSketch.getInstance().drawHangman(mistakesLeft);
-            System.out.println(ColorFont.ANSI_RED.code + hangmanState + ColorFont.ANSI_YELLOW.code +"\n\nMISTAKES LEFT: "+ mistakesLeft);
+            String hangmanState = HangmanSketch.getInstance().drawHangman(MISTAKES_LEFT);
+            System.out.println(ColorFont.ANSI_RED.code + hangmanState + ColorFont.ANSI_YELLOW.code +"\n\nMISTAKES LEFT: "+ MISTAKES_LEFT);
             System.out.println(ColorFont.ANSI_BLUE.code + "CURRENT SCORE: " + score + "\n\n\n");
         }
     }
@@ -69,7 +69,7 @@ public class Game {
             if(letter.charAt(0) == '1'){
                 isGameOver = false;
                 guesses.clear();
-                mistakesLeft = 6;
+                MISTAKES_LEFT = 6;
                 playGame(getRandomWord());
             }else if(letter.charAt(0) == '2'){
                 writeScoresToRepo();
@@ -81,13 +81,6 @@ public class Game {
         } else {
             restartOrQuitGame();
         }
-    }
-    void writeScoresToRepo() throws IOException {
-        ScoreRepository scoreRepo = new ScoreRepository();
-        scoreRepo.setAverageScore(player.getAverageScore());
-        scoreRepo.setHighestScore(player.getHighestScore());
-        ScoreWriter writer = new ScoreWriter();
-        writer.writeAverageScore(scoreRepo, "scoresRepo");
     }
     public static boolean getGuess(Scanner key, String word, List<Character> guesses) {
         System.out.println(ColorFont.ANSI_GREEN.code + FunFont.ENTER_LETTER.phrase);
@@ -122,6 +115,13 @@ public class Game {
             letter = key.nextLine().toUpperCase();
         }
         return true;
+    }
+    void writeScoresToRepo() throws IOException {
+        ScoreRepository scoreRepo = new ScoreRepository();
+        scoreRepo.setAverageScore(player.getAverageScore());
+        scoreRepo.setHighestScore(player.getHighestScore());
+        ScoreWriter writer = new ScoreWriter();
+        writer.writeAverageScore(scoreRepo, "scoresRepo");
     }
     public static void readLastScores() throws IOException, ClassNotFoundException {
         String fileName = "scoresRepo";
