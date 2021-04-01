@@ -9,7 +9,7 @@ Saving to the new branch
 * I'm going to make a Hangman, 2D terminal game.
 * A player will be given a random word and, a description to guess. 
 * A player can make 6 mistakes.
-* After each mistake, a part of the hangman will be drawn. Game is over when all 6 mistakes spent and a hangman is fully drawn
+* After each mistake, a part of the hangman will be drawn. Game is over when all 6 mistakes spent, and a hangman is fully drawn.
 * 
 *
 *
@@ -58,5 +58,5 @@ Saving to the new branch
 *Also would take more time to study OOD and try to find better/cleaner organization.
 *Different difficulty levels
 *Option to choose a theme, Java, history, geography and so on.
-*
+*Option to type the whole word
 *

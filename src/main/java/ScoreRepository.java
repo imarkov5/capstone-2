@@ -20,7 +20,7 @@ public class ScoreRepository implements Serializable {
 
     @Override
     public String toString() {
-        return "AVERAGE score - " + averageScore + " | HIGHEST score - " + highestScore +
+        return "AVERAGE score - " + String.format("%.2f", averageScore) + " | HIGHEST score - " + highestScore +
                 " | date: " + date +
                 "";
     }

@@ -2,14 +2,13 @@ import java.io.IOException;
 
 public class Board extends Game{
 
-
     private static Board board = new Board();
 
     public static Board getInstance(){
         return board;
     }
 
-
+    //starts application
     public void start() throws IOException {
         System.out.println(ColorFont.ANSI_MAGENTA.code + "\n\n\n" + FunFont.WELCOME.phrase + "\n\n" + ColorFont.ANSI_GREEN.code + FunFont.INSTRUCTIONS.phrase);
         String letter = key.nextLine();

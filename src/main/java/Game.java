@@ -15,10 +15,16 @@ public class Game {
     private Player player = Player.getInstance();
 
 
-    public Word getRandomWord() {
-        Word randomWord = words.get((int)(Math.random()*words.size()));
+    public Word getRandomWord() throws IOException {
+        while(words.size() == 0){
+            writeScoresToRepo();
+            System.out.println(ColorFont.ANSI_YELLOW.code+"SORRY, I RAN OUT OF WORDS :(");
+            System.exit(0);
+        }
+        Word randomWord = words.get((int) (Math.random() * words.size()));
         words.remove(randomWord);
         return randomWord;
+
     }
 
     public void playGame(Word randomWord) throws IOException {
@@ -32,7 +38,7 @@ public class Game {
                 player.addToScoreHistory(score);
                 player.setAverageScore();
                 System.out.println(ColorFont.ANSI_RED.code+ FunFont.GAME_OVER.phrase +
-                        "The word was "+ randomWord.name() + ColorFont.ANSI_BLUE.code + "\n\nYour HIGHEST SCORE: " + player.getHighestScore() + "\nAVERAGE SCORE: " + player.getAverageScore());
+                        "The word was "+ randomWord.name() + ColorFont.ANSI_BLUE.code + "\n\nYour HIGHEST SCORE: " + player.getHighestScore() + "\nAVERAGE SCORE: " + String.format("%.2f", player.getAverageScore()));
                 isGameOver = true;
                 restartOrQuitGame();
                 break;
@@ -45,7 +51,7 @@ public class Game {
                 player.addToScoreHistory(score);
                 player.setAverageScore();
                 System.out.println(ColorFont.ANSI_PURPLE.code + FunFont.WIN.phrase +
-                        ColorFont.ANSI_BLUE.code + "CURRENT SCORE: " + score + "\n\nHighest SCORE: " + player.getHighestScore() + "\nAverage Score: " + player.getAverageScore());
+                        ColorFont.ANSI_BLUE.code + "CURRENT SCORE: " + score + "\n\nHighest SCORE: " + player.getHighestScore() + "\nAverage Score: " + String.format("%.2f", player.getAverageScore()));
                 isGameOver = true;
                 restartOrQuitGame();
                 break;
@@ -68,6 +74,7 @@ public class Game {
             }else if(letter.charAt(0) == '2'){
                 writeScoresToRepo();
                 System.out.println(ColorFont.ANSI_MAGENTA.code+FunFont.SEE_YOU_SOON.phrase);
+                System.exit(0);
             }else{
                 restartOrQuitGame();
             }
