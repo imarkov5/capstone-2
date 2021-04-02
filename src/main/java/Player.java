@@ -12,7 +12,6 @@ public class Player {
     private Player(){};
     public static Player getInstance(){return player;};
 
-
     public int getHighestScore(){
         if(scoreHistory.size() == 0){
             return this.HIGHEST_SCORE = 0;

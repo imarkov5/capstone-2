@@ -61,6 +61,7 @@ public class Game {
             System.out.println(ColorFont.ANSI_BLUE.code + "CURRENT SCORE: " + score + "\n\n\n");
         }
     }
+
     public void restartOrQuitGame() throws IOException {
 
         System.out.println(ColorFont.ANSI_GREEN.code + "\n\nPress 1 to PLAY again | Press 2 to QUIT");
@@ -82,6 +83,7 @@ public class Game {
             restartOrQuitGame();
         }
     }
+
     public static boolean getGuess(Scanner key, String word, List<Character> guesses) {
         System.out.println(ColorFont.ANSI_GREEN.code + FunFont.ENTER_LETTER.phrase);
         String letter = key.nextLine().toUpperCase();
@@ -116,6 +118,7 @@ public class Game {
         }
         return true;
     }
+
     void writeScoresToRepo() throws IOException {
         ScoreRepository scoreRepo = new ScoreRepository();
         scoreRepo.setAverageScore(player.getAverageScore());
@@ -123,6 +126,7 @@ public class Game {
         ScoreWriter writer = new ScoreWriter();
         writer.writeAverageScore(scoreRepo, "scoresRepo");
     }
+
     public static void readLastScores() throws IOException, ClassNotFoundException {
         String fileName = "scoresRepo";
         ScoreWriter scoreWriter = new ScoreWriter();
