@@ -38,16 +38,16 @@ Saving to the new branch
 *Created ScoreRepository and ScoreWriter, implemented saving average score data to external file with Serializable interface.
 *Created Enum classes for fonts and colors, worked on UI
 *Created Game class. 
-*Worked on OOD:
-*Player, Board, and HangmanSketch are Singleton OOD pattern classes to insure that only one instance of each class created.
-*Implemented inheritance by extending Game class in Board class.
-*Enum classes: Word, ColorFont, FunFont
-*Implemented composition: Game has a Player, Words, HangmanSketch
-*Implemented Single Responsibility: Player is responsible for keeping scores and score history; HangmanSketch class is responsible for drawing Hangman
-*Single Responsibility cont.: Game is responsible for getting guesses, counting scores, printing tableau; Board is responsible for Welcome screen, instructions and starting game.
-*Implemented Behavioral design pattern, Mediator: Game is a mediator, provides loose coupling by keeping Player, HangmanSketch, Board, Word from referring to each other explicitly.
-*Implemented Observer design pattern (One-to-Many dependency) in Game where state of the Game object pushes and pulls new data to/from the other objects. When Game changes state, dependents do to, Player, HangmanSketch, ScoreRepo and ScoreWriter.
-*Observer cont.: For Example: playGame in Game changes Average Score and adds to Score history in Player object; Also sets Hangman state of HangmanSketch.
+*Worked on OOD principles/OOP pillars/OOD patterns:
+*Player, Board, and HangmanSketch are SINGLETON classes to insure that only one instance of each class created.
+*Implemented INHERITANCE by extending Game class in Board class.
+*Created advanced, Enum classes: Word, ColorFont, FunFont
+*Implemented COMPOSITION: Game has a Player, Words, HangmanSketch, Board
+*Implemented ENCAPSULATION by making all field private and some methods private
+*Implemented SINGLE RESPONSIBILITY: Player is responsible for keeping scores and score history; HangmanSketch class is responsible for drawing Hangman. Game is responsible for getting guesses, counting scores, printing tableau; Board is responsible for Welcome screen, instructions and starting game.
+*Implemented Behavioral design pattern, MEDIATOR: Game is a mediator, provides loose coupling by keeping Player, HangmanSketch, Board, Word from referring to each other explicitly.
+*Implemented OBSERVER design pattern (One-to-Many dependency) in Game where state of the Game object pushes and pulls to/from the other objects. When Game changes state, dependents do to, Player, HangmanSketch, ScoreRepo and ScoreWriter.
+*Observer cont.: For Example: playGame() in Game changes Average Score and adds to Score history in Player object; Also sets Hangman state of HangmanSketch.
 *Observer cont.: Game methods change states of ScoreWriter and ScoreRepository objects, calling serializing and deserializing methods from those objects.
 <h2>
     4. Reflection / Refactor
